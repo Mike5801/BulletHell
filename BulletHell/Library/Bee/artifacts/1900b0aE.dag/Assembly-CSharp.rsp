@@ -356,6 +356,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scrypts/BossBullet.cs"
 "Assets/Scrypts/PatternBullet1.cs"
+"Assets/Scrypts/PlayerBullets.cs"
+"Assets/Scrypts/PlayerController.cs"
 "Assets/Space Shooter Template FREE/Scripts/Bonus.cs"
 "Assets/Space Shooter Template FREE/Scripts/Boundary.cs"
 "Assets/Space Shooter Template FREE/Scripts/DirectMoving.cs"

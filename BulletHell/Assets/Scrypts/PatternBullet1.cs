@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class PatternBullet1 : MonoBehaviour
 {
+    public int speed = 20;
+    private bool hasInstantiated = false;
+
+    void OnBecameInvisible() {
+        Destroy(gameObject);
+    }
+
+    void OnBecameVisible() {
+        hasInstantiated = false;
+    }
+    
     // Start is called before the first frame update
-    public int speed = 10;
     void Start()
     {
         
@@ -15,5 +25,10 @@ public class PatternBullet1 : MonoBehaviour
     void Update()
     {
         transform.Translate( Vector3.down * speed * Time.deltaTime);
+        //OnBecameVisible();
+
+        if (hasInstantiated == true) {
+            OnBecameInvisible();
+        }
     }
 }
