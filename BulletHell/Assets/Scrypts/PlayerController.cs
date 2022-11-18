@@ -7,11 +7,14 @@ public class PlayerController : MonoBehaviour
     private Quaternion spawnRotation = Quaternion.Euler(90, 0, 0);
     private Vector3 positionObject;
     public GameObject playerBullets;
+    public int movementSpeed = 10;
+    public float forwardInput;
+    public float horizontalInput;
 
     // Start is called before the first frame update
     void Start()
     {
-        positionObject = GameObject.Find("StarSparrow1").transform.position;
+        positionObject = transform.position;
         
     }
 
@@ -21,8 +24,16 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            positionObject = GameObject.Find("StarSparrow1").transform.position;
+            positionObject = transform.position;
             Instantiate(playerBullets, positionObject, spawnRotation);
-        }  
+        }
+
+        horizontalInput = Input.GetAxis("Horizontal");
+        forwardInput = Input.GetAxis("Vertical");
+
+        transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed * forwardInput);
+
+        transform.Translate(Vector3.right * Time.deltaTime * movementSpeed * horizontalInput);
+
     }
 }

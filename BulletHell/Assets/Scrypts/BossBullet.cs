@@ -15,13 +15,13 @@ public class BossBullet : MonoBehaviour
 
     void Start()
     {
-        positionObject = GameObject.Find("Flying Insect").transform.position;
+        positionObject = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        positionObject = GameObject.Find("Flying Insect").transform.position;
+        positionObject = transform.position;
         
         if (count < ticksPerBullet) {
             count++;
