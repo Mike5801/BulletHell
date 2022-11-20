@@ -19,6 +19,8 @@ public class BossControl : MonoBehaviour
     public int ticksPerBullet = 20;
     private int count = 0;
 
+    public static float timeToShoot = 0;
+
     public void OnEnable()
     {
         TimeManager.OnMinuteChanged += TimeCheck;
@@ -31,7 +33,7 @@ public class BossControl : MonoBehaviour
 
     private void TimeCheck()
     {
-        if(TimeManager.Minute == 2) 
+        if(TimeManager.Minute == 1) 
         {
             StartCoroutine(MoveBoss());
         }
@@ -39,7 +41,7 @@ public class BossControl : MonoBehaviour
         {
             StartCoroutine(FirePattern1());
         }
-        if(TimeManager.Minute == 12) 
+        if(TimeManager.Minute == 10) 
         {
             StartCoroutine(MoveBoss2());
         }
@@ -47,7 +49,7 @@ public class BossControl : MonoBehaviour
         {
             StartCoroutine(FirePattern2());
         }
-        if(TimeManager.Minute == 22) 
+        if(TimeManager.Minute == 20) 
         {
             StartCoroutine(MoveBoss3());
         }
@@ -72,10 +74,10 @@ public class BossControl : MonoBehaviour
     {   
         Quaternion rotation = Quaternion.Euler(0, 0, 3);
         float timeElapsed = 0;
-        float timeToMove = 3;
+        timeToShoot = 3;
         Quaternion resultingQuaternion = spawnRotation;
 
-        while(timeElapsed < timeToMove){
+        while(timeElapsed < timeToShoot){
             resultingQuaternion *= rotation;          
             if (count < ticksPerBullet) {
                 count++;
@@ -94,11 +96,11 @@ public class BossControl : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, 15);
         Quaternion rotation2 = Quaternion.Euler(0, 0, -15);
         float timeElapsed = 0;
-        float timeToMove = 3;
+        timeToShoot = 3;
         Quaternion resultingQuaternion = spawnRotation;
         Quaternion resultingQuaternion2 = spawnRotation;
 
-        while(timeElapsed < timeToMove){  
+        while(timeElapsed < timeToShoot){  
             resultingQuaternion *= rotation;
             resultingQuaternion2 *= rotation2;
                    
@@ -123,7 +125,7 @@ public class BossControl : MonoBehaviour
         Quaternion rotation4 = Quaternion.Euler(0, 0, 30);
 
         float timeElapsed = 0;
-        float timeToMove = 3;
+        timeToShoot = 3;
 
         Quaternion resultingQuaternion = spawnRotation;
         Quaternion resultingQuaternion2 = spawnRotation * Quaternion.Euler(0,180,0);
@@ -131,7 +133,7 @@ public class BossControl : MonoBehaviour
         Quaternion resultingQuaternion4 = spawnRotation * Quaternion.Euler(0,180,0);
 
 
-        while(timeElapsed < timeToMove){    
+        while(timeElapsed < timeToShoot){    
             resultingQuaternion *= rotation;
             resultingQuaternion2 *= rotation2;
             resultingQuaternion3 *= rotation3;
@@ -158,10 +160,9 @@ public class BossControl : MonoBehaviour
         Vector3 targetPos = new Vector3(5.36f, 1.16f, -47.42f); //-6, 0.48
 
         Vector3 currentPos = transform.position;
-        Debug.Log(currentPos);
 
         float timeElapsed = 0;
-        float timeToMove = 5;
+        float timeToMove = 3;
         while(timeElapsed < timeToMove){
             transform.position = Vector3.Lerp(currentPos, targetPos, timeElapsed/timeToMove);
             timeElapsed += Time.deltaTime;
@@ -174,7 +175,7 @@ public class BossControl : MonoBehaviour
         Vector3 targetPos = new Vector3(16.5f, 1.16f, -49.42f);
         Vector3 currentPos = transform.position;
         float timeElapsed = 0;
-        float timeToMove = 5;
+        float timeToMove = 3;
         while(timeElapsed < timeToMove){
             transform.position = Vector3.Lerp(currentPos, targetPos, timeElapsed/timeToMove);
             timeElapsed += Time.deltaTime;
@@ -187,7 +188,7 @@ public class BossControl : MonoBehaviour
         Vector3 targetPos = new Vector3(11.36f, 1.16f, -45);
         Vector3 currentPos = transform.position;
         float timeElapsed = 0;
-        float timeToMove = 5;
+        float timeToMove = 3;
         while(timeElapsed < timeToMove){
             transform.position = Vector3.Lerp(currentPos, targetPos, timeElapsed/timeToMove);
             timeElapsed += Time.deltaTime;
