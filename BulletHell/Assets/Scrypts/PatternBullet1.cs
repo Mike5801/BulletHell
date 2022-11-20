@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class PatternBullet1 : MonoBehaviour
 {
+
     public int speed = 20;
-    private bool hasInstantiated = false;
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }   
+    }
 
     void OnBecameInvisible() {
         Destroy(gameObject);
         BulletManager.bulletCounter -= 1;
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -23,9 +25,5 @@ public class PatternBullet1 : MonoBehaviour
     {
         transform.Translate( Vector3.down * speed * Time.deltaTime);
         //OnBecameVisible();
-
-        if (hasInstantiated == true) {
-            OnBecameInvisible();
-        }
     }
 }

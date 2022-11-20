@@ -11,8 +11,17 @@ public class TimeManager : MonoBehaviour
     public static int Minute{get; private set;}
     public static int Hour{get;private set;}
 
-    private float minuteToRealTime = 1f;
+    public static float minuteToRealTime = 1f;
     private float timer;
+
+    public float slowDownFactor = 0.5f;
+    public float slowDownLength = 2f;
+
+    public void DoSlowMotion()
+    {
+        Time.timeScale = slowDownFactor;
+        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+    }
     // Start is called before the first frame update
     void Start()
     {

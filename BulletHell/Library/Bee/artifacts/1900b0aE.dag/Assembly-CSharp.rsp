@@ -394,6 +394,7 @@
 "Assets/Packages/StarSparrow/Readme/Readme Files/Scripts/ReadmeStarSparrow.cs"
 "Assets/Scrypts/BossControl.cs"
 "Assets/Scrypts/BulletManager.cs"
+"Assets/Scrypts/GameOver.cs"
 "Assets/Scrypts/PatternBullet1.cs"
 "Assets/Scrypts/PatternBullet2.cs"
 "Assets/Scrypts/PatternBullet3.cs"
