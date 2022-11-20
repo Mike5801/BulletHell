@@ -20,7 +20,7 @@ public class TimeManager : MonoBehaviour
     public void DoSlowMotion()
     {
         Time.timeScale = slowDownFactor;
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        Time.fixedDeltaTime = Time.timeScale * 0.5f;
     }
     // Start is called before the first frame update
     void Start()

@@ -45,11 +45,11 @@ public class BossControl : MonoBehaviour
         {
             StartCoroutine(MoveBoss2());
         }
-        if(TimeManager.Minute < 20 && TimeManager.Minute >= 10)
+        if(TimeManager.Minute >= 10 && TimeManager.Minute < 20)
         {
             StartCoroutine(FirePattern2());
         }
-        if(TimeManager.Minute == 20) 
+        if(TimeManager.Minute == 19) 
         {
             StartCoroutine(MoveBoss3());
         }
