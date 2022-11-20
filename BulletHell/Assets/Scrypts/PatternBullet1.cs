@@ -9,10 +9,7 @@ public class PatternBullet1 : MonoBehaviour
 
     void OnBecameInvisible() {
         Destroy(gameObject);
-    }
-
-    void OnBecameVisible() {
-        hasInstantiated = false;
+        BulletManager.bulletCounter -= 1;
     }
     
     // Start is called before the first frame update

@@ -21,11 +21,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             positionObject = transform.position;
             Instantiate(playerBullets, positionObject, spawnRotation);
+            BulletManager.bulletCounter += 1;
         }
 
         horizontalInput = Input.GetAxis("Horizontal");

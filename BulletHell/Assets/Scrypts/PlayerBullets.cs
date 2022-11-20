@@ -9,12 +9,9 @@ public class PlayerBullets : MonoBehaviour
 
     void OnBecameInvisible() {
         Destroy(gameObject);
+        BulletManager.bulletCounter -= 1;
     }
 
-    void OnBecameVisible() {
-        hasInstantiated = false;
-    }
-    
     // Start is called before the first frame update
     void Start()
     {
